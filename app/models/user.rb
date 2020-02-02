@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :signed_agreements
   has_many :carts
   has_many :loans, foreign_key: "borrower_id"
+  has_one :membership_type
 
   enum role: [:admin, :volunteer, :member]
 
@@ -35,5 +36,10 @@ class User < ApplicationRecord
 
   def send_welcome_email
     WelcomeMailer.welcome_email(self).deliver
+  end
+
+  def name_with_membership_type
+    memb_type = self&.membership_type&.short_name || "Needs a membership type"
+    "#{first_name} #{last_name}, #{memb_type}"
   end
 end
