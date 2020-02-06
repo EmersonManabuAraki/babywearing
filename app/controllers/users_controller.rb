@@ -9,16 +9,16 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+      format.csv {send_data @users.to_csv, filename: "users-#{Date.today}.csv"}
     end
   end
 
   def edit
+    @membership_types = MembershipType.all
   end
 
   def update
     authorize @user
-
     if @user.update(user_params)
       redirect_to users_url, notice: 'User was successfully updated.'
     else
@@ -38,8 +38,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :email, :first_name, :last_name, :street_address, :street_address_second,
-      :city, :state, :postal_code, :phone_number, :role
+        :email, :first_name, :last_name, :street_address, :street_address_second,
+        :city, :state, :postal_code, :phone_number, :role, :membership_type_id
     )
   end
 end

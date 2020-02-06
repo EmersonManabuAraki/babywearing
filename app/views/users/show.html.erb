@@ -9,6 +9,8 @@
   <dd class="col-sm-10"><%= @user.created_at %><br></dd>
   <dt class="col-sm-2 text-md-right">Role:</dt>
   <dd class="col-sm-10"><%= @user.role.humanize %><br></dd>
+  <dt class="col-sm-2 text-md-right">Membership Type:</dt>
+  <dd class="col-sm-10"><%= @user.membership_type_id %><br></dd>
   <dt class="col-sm-2 text-md-right">Status:</dt>
   <dd class="col-sm-10">
     <% if @user.deactivated? %>
