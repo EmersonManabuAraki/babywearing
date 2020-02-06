@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_01_172037) do
+ActiveRecord::Schema.define(version: 2020_02_06_144913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,8 +142,10 @@ ActiveRecord::Schema.define(version: 2020_02_01_172037) do
     t.string "first_name"
     t.string "last_name"
     t.integer "role", default: 2, null: false
+    t.bigint "membership_type_id"
     t.index ["deactivated_at"], name: "index_users_on_deactivated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["membership_type_id"], name: "index_users_on_membership_type_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -153,4 +155,5 @@ ActiveRecord::Schema.define(version: 2020_02_01_172037) do
   add_foreign_key "loans", "users", column: "borrower_id"
   add_foreign_key "loans", "users", column: "checkin_volunteer_id"
   add_foreign_key "loans", "users", column: "checkout_volunteer_id"
+  add_foreign_key "users", "membership_types"
 end

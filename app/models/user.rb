@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :signed_agreements
   has_many :carts
   has_many :loans, foreign_key: "borrower_id"
-  has_one :membership_type, foreign_key: "membership_type_id"
+  has_one :membership_type
 
   enum role: [:admin, :volunteer, :member]
 

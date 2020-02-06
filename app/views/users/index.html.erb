@@ -23,7 +23,7 @@
         <td><%= user.phone_number %></td>
         <td><%= user.created_at %></td>
         <td><%= user.role.humanize %></td>
-        <td><%= user.membership_type %></td>
+<!--        <td><%#= MembershipType.find(user&.membership_type_id).name %></td>-->
         <% if user.deactivated? %>
           <td> Inactive</td>
           <td>
