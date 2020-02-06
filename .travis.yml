@@ -41,4 +41,5 @@ deploy:
   skip_cleanup: true
   provider: script
   script: ./deploy/deploy.sh
-  if: branch IN (staging, master) && push = type
+  on:
+    branch: staging
