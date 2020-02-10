@@ -4,7 +4,7 @@ echo "$TRAVIS_COMMIT" > ./deploy/deploy_hash
 echo "$MASTER_KEY" > ./config/master.key
 
 # build and push image
-docker build -f Dockerfile.prod -t babywearing.azurecr.io/babywearing:prod .
+docker build -f ./docker/app/Dockerfile.prod -t babywearing.azurecr.io/babywearing:prod .
 docker login babywearing.azurecr.io --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
 docker push babywearing.azurecr.io/babywearing:prod
 
