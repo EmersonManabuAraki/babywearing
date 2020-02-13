@@ -35,7 +35,7 @@ services:
   web:
     image: babywearing.azurecr.io/nginx:prod
     env_file:
-      - $TRAVIS_BUILD_DIR/.env/development/web
+      - $TRAVIS_BUILD_DIR/.env/production/web
     ports:
       - "80:80"
     depends_on:
