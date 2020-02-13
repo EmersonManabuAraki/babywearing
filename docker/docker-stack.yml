@@ -29,15 +29,11 @@ services:
         condition: none
 
   web:
-    build:
-      context: .
-      dockerfile: $TRAVIS_BUILD_DIR/docker/web/Dockerfile
+    image: babywearing.azurecr.io/nginx:prod
     env_file:
       - $TRAVIS_BUILD_DIR/.env/development/web
     ports:
       - "80:80"
-    links:
-      - app
 
 volumes:
   babywearing_pg:
