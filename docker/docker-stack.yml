@@ -8,6 +8,8 @@ services:
     env_file:
       - $TRAVIS_BUILD_DIR/.env/production/database
       - $TRAVIS_BUILD_DIR/.env/production/app
+    depends_on:
+      - db-migrator
 
   database:
     image: postgres:11.6
@@ -27,6 +29,8 @@ services:
     deploy:
       restart_policy:
         condition: none
+    depends_on:
+      - database
 
   web:
     image: babywearing.azurecr.io/nginx:prod
@@ -34,6 +38,8 @@ services:
       - $TRAVIS_BUILD_DIR/.env/development/web
     ports:
       - "80:80"
+    depends_on:
+      - app
 
 volumes:
   babywearing_pg:
