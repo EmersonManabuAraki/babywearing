@@ -12,7 +12,7 @@ services:
   database:
     image: postgres:11.6
     env_file:
-      - $TRAVIS_BUILD_DIR.env/production/database
+      - $TRAVIS_BUILD_DIR/.env/production/database
     volumes:
       - babywearing_pg:/var/lib/postgresql/data
 
