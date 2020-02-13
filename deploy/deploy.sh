@@ -14,5 +14,5 @@ export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="$REMOTE_DOCKER_HOST"
 export DOCKER_CERT_PATH="$REMOTE_DOCKER_CERT_PATH"
 export DOCKER_MACHINE_NAME="$REMOTE_DOCKER_MACHINE_NAME"
-docker stack deploy -c docker-stack.yml babywearing_stage --with-registry-auth
+docker stack deploy -c ./docker/docker-stack.yml babywearing_stage --with-registry-auth
 
