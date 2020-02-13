@@ -25,7 +25,7 @@ services:
               bin/rails db:seed"
     env_file:
       - $TRAVIS_BUILD_DIR/.env/production/database
-      - $TRAVIS_BUILD_DIR/.env/production/web
+      - $TRAVIS_BUILD_DIR/.env/production/app
     deploy:
       restart_policy:
         condition: none
